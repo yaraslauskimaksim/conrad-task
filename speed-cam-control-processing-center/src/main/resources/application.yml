@@ -1,0 +1,29 @@
+processing-center-service:
+  allowedSpeedOnPublicRoad: 60
+
+server:
+  port: 8082
+
+spring:
+  application:
+    name: @service.name@
+  kafka:
+    bootstrap-servers: localhost:9092
+  cloud:
+    stream:
+      function:
+        definition: roadIncidentConsumer;
+      kafka:
+        binder:
+          autoCreateTopics: true
+          brokers: localhost:9092
+          producerProperties:
+            key.serializer: org.apache.kafka.common.serialization.StringSerializer
+      bindings:
+        roadIncidentConsumer-in-0:
+          destination: conrad_road_camera_incedent
+          group: ${spring.application.name}
+          content-type: application/json
+          binder: kafka
+          consumer:
+            header-mode: none

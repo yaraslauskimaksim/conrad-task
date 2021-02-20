@@ -1,0 +1,32 @@
+data-generation-service:
+  objectNumberLength: 5
+  daysSubtractFromCurrentDate: 2
+  minSpeedValue: 1
+  maxSpeedValue: 320
+
+server:
+  port: 8081
+
+spring:
+  application:
+    name: @service.name@
+  kafka:
+    bootstrap-servers: localhost:9092
+  cloud:
+    stream:
+      function:
+        definition: roadIncidentOut;
+      kafka:
+        binder:
+          autoCreateTopics: true
+          brokers: localhost:9092
+          producerProperties:
+            key.serializer: org.apache.kafka.common.serialization.StringSerializer
+      bindings:
+        roadIncidentOut:
+          destination: conrad_road_camera_incedent
+          group: ${spring.application.name}
+          content-type: application/json
+          binder: kafka
+          consumer:
+            header-mode: none
