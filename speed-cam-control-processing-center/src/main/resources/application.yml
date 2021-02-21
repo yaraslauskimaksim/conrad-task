@@ -21,9 +21,20 @@ spring:
             key.serializer: org.apache.kafka.common.serialization.StringSerializer
       bindings:
         roadIncidentConsumer-in-0:
-          destination: conrad_road_camera_incedent
+          destination: conrad_road_camera_incident
           group: ${spring.application.name}
           content-type: application/json
           binder: kafka
           consumer:
             header-mode: none
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+  datasource:
+    url: jdbc:h2:mem:speed_control_db
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: sa
+  h2:
+    console:
+      enabled: true
+

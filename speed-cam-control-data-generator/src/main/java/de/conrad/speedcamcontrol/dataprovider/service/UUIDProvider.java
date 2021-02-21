@@ -10,8 +10,4 @@ public class UUIDProvider {
     public UUID provideUuid() {
         return UUID.randomUUID();
     }
-
-    public String provideUuidAsString() {
-        return provideUuid().toString();
-    }
 }

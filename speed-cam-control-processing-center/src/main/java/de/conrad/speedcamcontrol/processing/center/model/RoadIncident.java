@@ -2,7 +2,6 @@ package de.conrad.speedcamcontrol.processing.center.model;
 
 import java.math.BigInteger;
 import java.time.Instant;
-import java.util.UUID;
 
 import lombok.Builder;
 import lombok.Data;
@@ -11,6 +10,8 @@ import lombok.Data;
 @Builder
 public class RoadIncident {
 
+    private long id;
+
     private String objectNumber;
 
     private int objectSpeed;
@@ -18,8 +19,6 @@ public class RoadIncident {
     private Instant incidentTs;
 
     private Instant eventTs;
-
-    private UUID uuid;
 
     private boolean isViewed;
 

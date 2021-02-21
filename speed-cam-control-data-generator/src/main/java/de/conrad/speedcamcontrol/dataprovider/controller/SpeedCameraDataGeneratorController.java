@@ -21,7 +21,7 @@ public class SpeedCameraDataGeneratorController {
 
     private final RoadIncidentDataProviderService roadIncidentDataProviderService;
 
-    @PostMapping(("/generate-road-incidents"))
+    @PostMapping("/generate-road-incidents")
     public void createRoadIncident(@RequestBody @Valid RoadIncidentGenerationRequest roadIncidentGenerationRequest) {
         log.info("createRoadIncident request: {}", roadIncidentGenerationRequest);
         roadIncidentDataProviderService.generateRoadIncidentData(roadIncidentGenerationRequest.getCountOfIncident());

@@ -2,7 +2,7 @@ data-generation-service:
   objectNumberLength: 5
   daysSubtractFromCurrentDate: 2
   minSpeedValue: 1
-  maxSpeedValue: 320
+  maxSpeedValue: 190
 
 server:
   port: 8081
@@ -24,7 +24,7 @@ spring:
             key.serializer: org.apache.kafka.common.serialization.StringSerializer
       bindings:
         roadIncidentOut:
-          destination: conrad_road_camera_incedent
+          destination: conrad_road_camera_incident
           group: ${spring.application.name}
           content-type: application/json
           binder: kafka

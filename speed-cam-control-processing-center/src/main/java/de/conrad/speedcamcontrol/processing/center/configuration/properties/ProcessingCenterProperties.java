@@ -5,5 +5,5 @@ import lombok.Data;
 @Data
 public class ProcessingCenterProperties {
 
-    private int allowedSpeedOnPublicRoad;
+    private int allowedSpeedOnPublicRoad = Integer.MAX_VALUE;
 }

@@ -5,7 +5,7 @@ import de.conrad.speedcamcontrol.dataprovider.model.RoadIncident;
 import org.springframework.stereotype.Service;
 
 @Service
-public class RoadIncidentToRoadIncidentMapper implements Mapper<RoadIncident, RoadIncidentEvent> {
+public class RoadIncidentToRoadIncidentEventMapper implements Mapper<RoadIncident, RoadIncidentEvent> {
 
     @Override
     public RoadIncidentEvent convert(RoadIncident source) {
