@@ -4,30 +4,66 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.4.3</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+
     <groupId>de.conrad</groupId>
-    <artifactId>speed-cam-control</artifactId>
+    <artifactId>speed-cam-control-parent</artifactId>
     <version>0.1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
 
-    <name>BingoClansFacade parent</name>
-    <description>Playtika BingoClansFacade parent project</description>
+    <modules>
+        <module>speed-cam-control-eureka</module>
+        <module>speed-cam-control-data-generator</module>
+        <module>speed-cam-control-processing-center</module>
+    </modules>
+
+    <name>Conrad Technical task parent</name>
+    <description>Conrad Technical task parent</description>
 
     <properties>
         <java.version>11</java.version>
-        <maven.compiler.source>${java.version}</maven.compiler.source>
-        <maven.compiler.target>${java.version}</maven.compiler.target>
+
+        <spring-cloud.version>2020.0.1</spring-cloud.version>
 
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
         <maven-checkstyle-plugin.skip>false</maven-checkstyle-plugin.skip>
         <maven-checkstyle-plugin.configLocation>checkstyle.xml</maven-checkstyle-plugin.configLocation>
+
+        <lonbok.version>1.18.10</lonbok.version>
+        <h2.version>1.4.200</h2.version>
     </properties>
 
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lonbok.version}</version>
+                <scope>provided</scope>
+            </dependency>
 
+            <dependency>
+                <groupId>com.h2database</groupId>
+                <artifactId>h2</artifactId>
+                <version>${h2.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>
